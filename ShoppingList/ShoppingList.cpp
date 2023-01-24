@@ -14,6 +14,8 @@ int main(void)
 	li->setDescription("For the guacamole on Saturday");
 	std::cout << li->getDescription() << '\n';
 	li->setCategory(ListItem::Category::PRODUCE);
+	std::cout << li->getCategoryStr() << '\n';
 	li->setQuantity(3);
+	std::cout << li->getQuantity() << '\n';
 	return 0;
 }

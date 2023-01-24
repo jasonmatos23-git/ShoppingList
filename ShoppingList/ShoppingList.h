@@ -79,6 +79,13 @@ public:
 
 	Category getCategory(void);
 	Category setCategory(Category category);
+
+	// -------
+	// Utility
+	// -------
+	// Note: May define a map instead
+	static const char* categoryToString(Category category);
+	const char* getCategoryStr(void);
 };
 
 #endif // SHOPPING_LIST_H
