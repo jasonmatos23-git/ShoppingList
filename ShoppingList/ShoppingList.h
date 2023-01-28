@@ -136,7 +136,8 @@ public:
 	// ---------
 	void addListItem(ListItem item);
 	void removeListItem(int index);
-	void printListItems(int filter);
+	void printListItem(unsigned int index, unsigned int filter);
+	void printListItems(unsigned int filter);
 };
 
 #endif // SHOPPING_LIST_H
