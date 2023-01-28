@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="ListDescriptor.cpp" />
     <ClCompile Include="ListItem.cpp" />
     <ClCompile Include="ShoppingList.cpp" />
