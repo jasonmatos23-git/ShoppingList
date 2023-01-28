@@ -130,6 +130,13 @@ private:
 	// -----------
 public:
 	List(const char* name, int nameLength, const char* description, int descLength);
+
+	// ---------
+	// Modifiers
+	// ---------
+	void addListItem(ListItem item);
+	void removeListItem(int index);
+	void printListItems(int filter);
 };
 
 #endif // SHOPPING_LIST_H
