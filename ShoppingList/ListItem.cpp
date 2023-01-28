@@ -13,26 +13,9 @@ unsigned int ListItem::kDefaultItemQuantity = 1;
 // ------------
 // Constructors
 // ------------
-ListItem::ListItem(const char* name, int nameLength, const char* description, int descLength, unsigned int quantity, Category category)
+ListItem::ListItem(const char* name, int nameLength, const char* description, int descLength, unsigned int quantity, Category category) :
+	ListDescriptor(name, nameLength, description, descLength)
 {
-	this->m_name = nullptr;
-	this->m_description = nullptr;
-
-	// Name
-	this->setName(name, nameLength);
-
-	// Description
-	try
-	{
-		this->setDescription(description, descLength);
-	}
-	catch (std::exception setNameException)
-	{
-		free(this->m_name);
-		this->m_name = nullptr;
-		throw setNameException;
-	}
-
 	// Quantity
 	this->m_quantity = quantity;
 
