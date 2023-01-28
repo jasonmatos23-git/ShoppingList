@@ -4,6 +4,8 @@
 #ifndef SHOPPING_LIST_H
 #define SHOPPING_LIST_H
 
+#include <vector>
+
 
 class ListDescriptor
 {
@@ -112,6 +114,17 @@ public:
 	// Note: May define a map instead
 	static const char* categoryToString(Category category);
 	const char* getCategoryStr(void);
+};
+
+
+class List: public ListDescriptor
+{
+	// -----------
+	// Member vars
+	// -----------
+private:
+	std::vector<ListItem> m_listItems;
+	
 };
 
 #endif // SHOPPING_LIST_H
