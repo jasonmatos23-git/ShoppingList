@@ -125,6 +125,11 @@ class List: public ListDescriptor
 private:
 	std::vector<ListItem> m_listItems;
 	
+	// -----------
+	// Constructor
+	// -----------
+public:
+	List(const char* name, int nameLength, const char* description, int descLength);
 };
 
 #endif // SHOPPING_LIST_H
