@@ -4,7 +4,40 @@
 #ifndef SHOPPING_LIST_H
 #define SHOPPING_LIST_H
 
-class ListItem
+
+class ListDescriptor
+{
+	// -----------
+	// Member vars
+	// -----------
+protected:
+	char* m_name;
+	char* m_description;
+
+	// -------
+	// Helpers
+	// -------
+protected:
+	static char* setString(char** m_str, const char* i_str, int length);
+	static char* setString(char** m_str, const char* i_str);
+
+	// -------------------
+	// Getters and Setters
+	// -------------------
+public:
+	virtual char* getName(void);
+	virtual char* setName(char* name);
+	virtual char* setName(const char* name, int length);
+	virtual char* setName(const char* name);
+
+	virtual char* getDescription(void);
+	virtual char* setDescription(char* description);
+	virtual char* setDescription(const char* description, int length);
+	virtual char* setDescription(const char* description);
+};
+
+
+class ListItem: public ListDescriptor
 {
 	// ----------------------
 	// Constants (class vars)
@@ -32,8 +65,6 @@ public:
 	// Member vars
 	// -----------
 private:
-	char* m_name;
-	char* m_description;
 	unsigned int m_quantity;
 	Category m_category;
 
@@ -53,27 +84,10 @@ public:
 	// ----------
 	~ListItem(void);
 
-	// -------
-	// Helpers
-	// -------
-private:
-	static char* setString(char** m_str, const char* i_str, int length);
-	static char* setString(char** m_str, const char* i_str);
-
 	// -------------------
 	// Getters and Setters
 	// -------------------
 public:
-	char* getName(void);
-	char* setName(char* name);
-	char* setName(const char* name, int length);
-	char* setName(const char* name);
-
-	char* getDescription(void);
-	char* setDescription(char* description);
-	char* setDescription(const char* description, int length);
-	char* setDescription(const char* description);
-
 	unsigned int getQuantity(void);
 	unsigned int setQuantity(unsigned int quantity);
 
