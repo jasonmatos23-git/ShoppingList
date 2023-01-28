@@ -38,15 +38,6 @@ ListItem::ListItem(const char* name, int nameLength) :
 ListItem::ListItem(void) :
 	ListItem(static_cast<const char*>(nullptr), 0, static_cast<const char*>(nullptr), 0, ListItem::kDefaultItemQuantity, Category::NONE) {}
 
-// ----------
-// Destructor
-// ----------
-ListItem::~ListItem(void)
-{
-	free(this->m_name);
-	free(this->m_description);
-}
-
 // -------------------
 // Getters and Setters
 // -------------------
