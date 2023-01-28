@@ -21,6 +21,16 @@ protected:
 	static char* setString(char** m_str, const char* i_str, int length);
 	static char* setString(char** m_str, const char* i_str);
 
+	// -----------
+	// Constructor
+	// -----------
+	ListDescriptor(const char* name, int nameLength, const char* description, int descLength);
+
+	// ----------
+	// Destructor
+	// ----------
+	~ListDescriptor(void);
+
 	// -------------------
 	// Getters and Setters
 	// -------------------

@@ -48,6 +48,37 @@ char* ListDescriptor::setString(char** m_str, const char* i_str)
 	return setString(m_str, i_str, length);
 }
 
+// -----------
+// Constructor
+// -----------
+ListDescriptor::ListDescriptor(const char* name, int nameLength, const char* description, int descLength)
+{
+	this->m_name = nullptr;
+	this->m_description = nullptr;
+	try
+	{
+		this->setName(name, nameLength);
+		this->setDescription(description, descLength);
+	}
+	catch (std::exception setNameException)
+	{
+		free(this->m_description);
+		free(this->m_name);
+		this->m_description = nullptr;
+		this->m_name = nullptr;
+		throw setNameException;
+	}
+}
+
+// ----------
+// Destructor
+// ----------
+ListDescriptor::~ListDescriptor(void)
+{
+	free(this->m_name);
+	free(this->m_description);
+}
+
 // -------------------
 // Getters and Setters
 // -------------------
