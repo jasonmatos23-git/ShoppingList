@@ -89,11 +89,6 @@ public:
 	ListItem(const char* name, int nameLength);
 	ListItem(void);
 
-	// ----------
-	// Destructor
-	// ----------
-	~ListItem(void);
-
 	// -------------------
 	// Getters and Setters
 	// -------------------
