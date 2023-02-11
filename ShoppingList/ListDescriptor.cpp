@@ -20,7 +20,7 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 	{
 		if (length < 1)
 		{
-			throw new std::invalid_argument("ListItem->string length should not be less than 1.");
+			throw new std::invalid_argument("ListDescriptor->string length should not be less than 1.");
 		}
 		else
 		{
