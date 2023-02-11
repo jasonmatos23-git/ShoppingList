@@ -31,6 +31,16 @@ protected:
 	// ----------
 	~ListDescriptor(void);
 
+	// ----------------
+	// Copy Constructor
+	// ----------------
+	ListDescriptor(const ListDescriptor& listDescriptor);
+
+	// ------------------------
+	// Copy Assignment Operator
+	// ------------------------
+	ListDescriptor& operator=(const ListDescriptor& listDescriptor);
+
 	// -------------------
 	// Getters and Setters
 	// -------------------

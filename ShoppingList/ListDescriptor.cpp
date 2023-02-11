@@ -83,6 +83,25 @@ ListDescriptor::~ListDescriptor(void)
 	free(this->m_description);
 }
 
+// ----------------
+// Copy Constructor
+// ----------------
+ListDescriptor::ListDescriptor(const ListDescriptor& listDescriptor)
+{
+	this->setName(static_cast<const char*>(listDescriptor.m_name));
+	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+}
+
+// ------------------------
+// Copy Assignment Operator
+// ------------------------
+ListDescriptor& ListDescriptor::operator=(const ListDescriptor& listDescriptor)
+{
+	this->setName(static_cast<const char*>(listDescriptor.m_name));
+	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+	return *this;
+}
+
 // -------------------
 // Getters and Setters
 // -------------------
