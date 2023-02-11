@@ -33,36 +33,34 @@ void List::removeListItem(int index)
 
 void List::printListItem(unsigned int index, unsigned int filter)
 {
-	// Filter bit flags - TODO: Not hard code them
-	// 0<<0: All content
-	// 1<<0: Disable name
-	// 1<<1: Disable description
-	// 1<<2: Disable quantity
-	// 1<<3: Disable category
 	ListItem* li = this->m_listItems.at(index);
-	std::cout << index << ": ";
-	if ((filter & (1 << 0)) != (1 << 0))
+	std::cout << index << ": " << "\n";
+	if (filter & ListItem::Filter::NAME)
 	{
+		std::cout << "Name:\t";
 		if (li->getName() != nullptr)
 		{
 			std::cout << li->getName();
 		}
 		std::cout << "\n";
 	}
-	if ((filter & (1 << 1)) != (1 << 1))
+	if (filter & ListItem::Filter::DESCRIPTION)
 	{
+		std::cout << "Desc:\t";
 		if (li->getDescription() != nullptr)
 		{
 			std::cout << li->getDescription();
 		}
 		std::cout << "\n";
 	}
-	if ((filter & (1 << 2)) != (1 << 2))
+	if (filter & ListItem::Filter::QUANTITY)
 	{
+		std::cout << "Quantity:\t";
 		std::cout << li->getQuantity() << "\n";
 	}
-	if ((filter & (1 << 3)) != (1 << 3))
+	if (filter & ListItem::Filter::CATEGORY)
 	{
+		std::cout << "Category:\t";
 		std::cout << li->getCategoryStr() << "\n";
 	}
 }
@@ -73,4 +71,9 @@ void List::printListItems(unsigned int filter)
 	{
 		printListItem(i, filter);
 	}
+}
+
+void List::printListItems(void)
+{
+	this->printListItems(ListItem::Filter::ALL);
 }

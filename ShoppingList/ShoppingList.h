@@ -81,6 +81,15 @@ public:
 		NONE
 	};
 
+	enum Filter : unsigned int
+	{
+		NAME = 1<<0,
+		DESCRIPTION = 1<<1,
+		QUANTITY = 1<<2,
+		CATEGORY = 1<<3,
+		ALL = NAME | DESCRIPTION | QUANTITY | CATEGORY
+	};
+
 	// -----------
 	// Member vars
 	// -----------
@@ -139,6 +148,7 @@ public:
 	void removeListItem(int index);
 	void printListItem(unsigned int index, unsigned int filter);
 	void printListItems(unsigned int filter);
+	void printListItems(void);
 };
 
 #endif // SHOPPING_LIST_H
