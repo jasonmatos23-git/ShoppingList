@@ -17,5 +17,10 @@ int main(void)
 	std::cout << li->getCategoryStr() << '\n';
 	li->setQuantity(3);
 	std::cout << li->getQuantity() << '\n';
+	List list = List("My new list", 50, "This list is a new list", 50);
+	ListItem li2 = ListItem("Avocado", 50, 12);
+	list.addListItem(li2);
+	list.addListItem(ListItem("Motor Oil", 50, 2, ListItem::Category::AUTOMOTIVE));
+	list.printListItems(0);
 	return 0;
 }

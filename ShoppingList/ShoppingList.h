@@ -4,6 +4,8 @@
 #ifndef SHOPPING_LIST_H
 #define SHOPPING_LIST_H
 
+#include <vector>
+
 
 class ListDescriptor
 {
@@ -79,6 +81,15 @@ public:
 		NONE
 	};
 
+	enum Filter : unsigned int
+	{
+		NAME = 1<<0,
+		DESCRIPTION = 1<<1,
+		QUANTITY = 1<<2,
+		CATEGORY = 1<<3,
+		ALL = NAME | DESCRIPTION | QUANTITY | CATEGORY
+	};
+
 	// -----------
 	// Member vars
 	// -----------
@@ -112,6 +123,32 @@ public:
 	// Note: May define a map instead
 	static const char* categoryToString(Category category);
 	const char* getCategoryStr(void);
+};
+
+
+class List: public ListDescriptor
+{
+	// -----------
+	// Member vars
+	// -----------
+private:
+	std::vector<ListItem*> m_listItems;
+	
+	// -----------
+	// Constructor
+	// -----------
+public:
+	List(const char* name, const char* description);
+	List(const char* name);
+
+	// ---------
+	// Modifiers
+	// ---------
+	void addListItem(ListItem* item);
+	void removeListItem(int index);
+	void printListItem(unsigned int index, unsigned int filter);
+	void printListItems(unsigned int filter);
+	void printListItems(void);
 };
 
 #endif // SHOPPING_LIST_H
