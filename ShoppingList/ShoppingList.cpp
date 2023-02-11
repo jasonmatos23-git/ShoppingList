@@ -7,7 +7,7 @@
 int main(void)
 {
 	ListItem* li = new ListItem();
-	li->setName("Avocado", 8);
+	li->setName("Avocado");
 	std::cout << li->getName() << '\n';
 	li->setName("Hass Avocado");
 	std::cout << li->getName() << '\n';

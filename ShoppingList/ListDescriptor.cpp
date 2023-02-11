@@ -55,14 +55,14 @@ char* ListDescriptor::setString(char** m_str, const char* i_str)
 // -----------
 // Constructor
 // -----------
-ListDescriptor::ListDescriptor(const char* name, int nameLength, const char* description, int descLength)
+ListDescriptor::ListDescriptor(const char* name, const char* description)
 {
 	this->m_name = nullptr;
 	this->m_description = nullptr;
 	try
 	{
-		this->setName(name, nameLength);
-		this->setDescription(description, descLength);
+		this->setName(name);
+		this->setDescription(description);
 	}
 	catch (std::exception setNameException)
 	{
@@ -98,11 +98,6 @@ char* ListDescriptor::setName(char* name)
 	return temp;
 }
 
-char* ListDescriptor::setName(const char* name, int length)
-{
-	return setString(&this->m_name, name, length);
-}
-
 char* ListDescriptor::setName(const char* name)
 {
 	return setString(&this->m_name, name);
@@ -120,11 +115,6 @@ char* ListDescriptor::setDescription(char* description)
 	char* temp{ this->m_description };
 	this->m_description = description;
 	return temp;
-}
-
-char* ListDescriptor::setDescription(const char* description, int length)
-{
-	return setString(&this->m_description, description, length);
 }
 
 char* ListDescriptor::setDescription(const char* description)
