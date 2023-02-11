@@ -20,7 +20,7 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 	{
 		if (length < 1)
 		{
-			throw new std::invalid_argument("ListItem->string length should not be less than 1.");
+			throw new std::invalid_argument("ListDescriptor->string length should not be less than 1.");
 		}
 		else
 		{
@@ -43,7 +43,11 @@ char* ListDescriptor::setString(char** m_str, const char* i_str)
 	int length{ 0 };
 	if (i_str != nullptr)
 	{
-		while (i_str[length++] != '\0') {}
+		while (i_str[length] != '\0')
+		{
+			length++;
+		}
+		length++;
 	}
 	return setString(m_str, i_str, length);
 }
@@ -51,14 +55,14 @@ char* ListDescriptor::setString(char** m_str, const char* i_str)
 // -----------
 // Constructor
 // -----------
-ListDescriptor::ListDescriptor(const char* name, int nameLength, const char* description, int descLength)
+ListDescriptor::ListDescriptor(const char* name, const char* description)
 {
 	this->m_name = nullptr;
 	this->m_description = nullptr;
 	try
 	{
-		this->setName(name, nameLength);
-		this->setDescription(description, descLength);
+		this->setName(name);
+		this->setDescription(description);
 	}
 	catch (std::exception setNameException)
 	{
@@ -94,11 +98,6 @@ char* ListDescriptor::setName(char* name)
 	return temp;
 }
 
-char* ListDescriptor::setName(const char* name, int length)
-{
-	return setString(&this->m_name, name, length);
-}
-
 char* ListDescriptor::setName(const char* name)
 {
 	return setString(&this->m_name, name);
@@ -116,11 +115,6 @@ char* ListDescriptor::setDescription(char* description)
 	char* temp{ this->m_description };
 	this->m_description = description;
 	return temp;
-}
-
-char* ListDescriptor::setDescription(const char* description, int length)
-{
-	return setString(&this->m_description, description, length);
 }
 
 char* ListDescriptor::setDescription(const char* description)

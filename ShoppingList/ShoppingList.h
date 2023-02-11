@@ -24,7 +24,7 @@ protected:
 	// -----------
 	// Constructor
 	// -----------
-	ListDescriptor(const char* name, int nameLength, const char* description, int descLength);
+	ListDescriptor(const char* name, const char* description);
 
 	// ----------
 	// Destructor
@@ -35,15 +35,13 @@ protected:
 	// Getters and Setters
 	// -------------------
 public:
-	virtual char* getName(void);
-	virtual char* setName(char* name);
-	virtual char* setName(const char* name, int length);
-	virtual char* setName(const char* name);
+	char* getName(void);
+	char* setName(char* name);
+	char* setName(const char* name);
 
-	virtual char* getDescription(void);
-	virtual char* setDescription(char* description);
-	virtual char* setDescription(const char* description, int length);
-	virtual char* setDescription(const char* description);
+	char* getDescription(void);
+	char* setDescription(char* description);
+	char* setDescription(const char* description);
 };
 
 
@@ -82,11 +80,10 @@ private:
 	// Constructors
 	// ------------
 public:
-	ListItem(const char* name, int nameLength, const char* description, int descLength,
-		unsigned int quantity, Category category);
-	ListItem(const char* name, int nameLength, unsigned int quantity, Category category);
-	ListItem(const char* name, int nameLength, unsigned int quantity);
-	ListItem(const char* name, int nameLength);
+	ListItem(const char* name, const char* description, unsigned int quantity, Category category);
+	ListItem(const char* name, unsigned int quantity, Category category);
+	ListItem(const char* name, unsigned int quantity);
+	ListItem(const char* name);
 	ListItem(void);
 
 	// -------------------

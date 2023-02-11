@@ -13,8 +13,8 @@ unsigned int ListItem::kDefaultItemQuantity = 1;
 // ------------
 // Constructors
 // ------------
-ListItem::ListItem(const char* name, int nameLength, const char* description, int descLength, unsigned int quantity, Category category) :
-	ListDescriptor(name, nameLength, description, descLength)
+ListItem::ListItem(const char* name, const char* description, unsigned int quantity, Category category) :
+	ListDescriptor(name, description)
 {
 	// Quantity
 	this->m_quantity = quantity;
@@ -24,19 +24,19 @@ ListItem::ListItem(const char* name, int nameLength, const char* description, in
 }
 
 // Name, quantity, category provided
-ListItem::ListItem(const char* name, int nameLength, unsigned int quantity, Category category) :
-	ListItem(name, nameLength, static_cast<const char*>(nullptr), 0, quantity, category){}
+ListItem::ListItem(const char* name, unsigned int quantity, Category category) :
+	ListItem(name, static_cast<const char*>(nullptr), quantity, category) {}
 
 // Name, quantity provided
-ListItem::ListItem(const char* name, int nameLength, unsigned int quantity) :
-	ListItem(name, nameLength, static_cast<const char*>(nullptr), 0, quantity, Category::NONE) {}
+ListItem::ListItem(const char* name, unsigned int quantity) :
+	ListItem(name, static_cast<const char*>(nullptr), quantity, Category::NONE) {}
 
 // Name provided
-ListItem::ListItem(const char* name, int nameLength) :
-	ListItem(name, nameLength, static_cast<const char*>(nullptr), 0, ListItem::kDefaultItemQuantity, Category::NONE) {}
+ListItem::ListItem(const char* name) :
+	ListItem(name, static_cast<const char*>(nullptr), ListItem::kDefaultItemQuantity, Category::NONE) {}
 
 ListItem::ListItem(void) :
-	ListItem(static_cast<const char*>(nullptr), 0, static_cast<const char*>(nullptr), 0, ListItem::kDefaultItemQuantity, Category::NONE) {}
+	ListItem(static_cast<const char*>(nullptr), static_cast<const char*>(nullptr), ListItem::kDefaultItemQuantity, Category::NONE) {}
 
 // -------------------
 // Getters and Setters
