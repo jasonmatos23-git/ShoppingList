@@ -123,18 +123,19 @@ class List: public ListDescriptor
 	// Member vars
 	// -----------
 private:
-	std::vector<ListItem> m_listItems;
+	std::vector<ListItem*> m_listItems;
 	
 	// -----------
 	// Constructor
 	// -----------
 public:
-	List(const char* name, int nameLength, const char* description, int descLength);
+	List(const char* name, const char* description);
+	List(const char* name);
 
 	// ---------
 	// Modifiers
 	// ---------
-	void addListItem(ListItem item);
+	void addListItem(ListItem* item);
 	void removeListItem(int index);
 	void printListItem(unsigned int index, unsigned int filter);
 	void printListItems(unsigned int filter);
