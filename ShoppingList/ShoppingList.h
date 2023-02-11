@@ -35,15 +35,15 @@ protected:
 	// Getters and Setters
 	// -------------------
 public:
-	virtual char* getName(void);
-	virtual char* setName(char* name);
-	virtual char* setName(const char* name, int length);
-	virtual char* setName(const char* name);
+	char* getName(void);
+	char* setName(char* name);
+	char* setName(const char* name, int length);
+	char* setName(const char* name);
 
-	virtual char* getDescription(void);
-	virtual char* setDescription(char* description);
-	virtual char* setDescription(const char* description, int length);
-	virtual char* setDescription(const char* description);
+	char* getDescription(void);
+	char* setDescription(char* description);
+	char* setDescription(const char* description, int length);
+	char* setDescription(const char* description);
 };
 
 
