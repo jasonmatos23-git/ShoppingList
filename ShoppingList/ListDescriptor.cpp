@@ -43,7 +43,11 @@ char* ListDescriptor::setString(char** m_str, const char* i_str)
 	int length{ 0 };
 	if (i_str != nullptr)
 	{
-		while (i_str[length++] != '\0') {}
+		while (i_str[length] != '\0')
+		{
+			length++;
+		}
+		length++;
 	}
 	return setString(m_str, i_str, length);
 }
