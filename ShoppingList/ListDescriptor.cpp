@@ -41,12 +41,13 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 char* ListDescriptor::setString(char** m_str, const char* i_str)
 {
 	int length{ 0 };
+	if (m_str == nullptr)
+	{
+		throw new std::invalid_argument("setString char** m_str cannot be nullptr.");
+	}
 	if (i_str != nullptr)
 	{
-		while (i_str[length] != '\0')
-		{
-			length++;
-		}
+		while (i_str[length++] != '\0');
 		length++;
 	}
 	return setString(m_str, i_str, length);
