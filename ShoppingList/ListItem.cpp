@@ -5,11 +5,6 @@
 #include <cstdlib>
 #include "ShoppingList.h"
 
-// ---------
-// Constants
-// ---------
-unsigned int ListItem::kDefaultItemQuantity = 1;
-
 // ------------
 // Constructors
 // ------------

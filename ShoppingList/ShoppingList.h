@@ -63,7 +63,7 @@ class ListItem: public ListDescriptor
 	// Constants (class vars)
 	// ----------------------
 private:
-	static unsigned int kDefaultItemQuantity;
+	const static unsigned int kDefaultItemQuantity = 1;
 
 public:
 	enum class Category
