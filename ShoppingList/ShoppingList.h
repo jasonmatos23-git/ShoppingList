@@ -102,8 +102,12 @@ private:
 	// ------------
 public:
 	ListItem(const char* name, const char* description, unsigned int quantity, Category category);
+	ListItem(const char* name, const char* description, unsigned int quantity);
+	ListItem(const char* name, const char* description, Category category);
+	ListItem(const char* name, const char* description);
 	ListItem(const char* name, unsigned int quantity, Category category);
 	ListItem(const char* name, unsigned int quantity);
+	ListItem(const char* name, Category category);
 	ListItem(const char* name);
 	ListItem(void);
 
