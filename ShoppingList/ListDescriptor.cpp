@@ -67,13 +67,13 @@ ListDescriptor::ListDescriptor(const char* name, const char* description)
 		this->setName(name);
 		this->setDescription(description);
 	}
-	catch (std::exception setNameException)
+	catch (std::exception setListDescriptorException)
 	{
 		free(this->m_description);
 		free(this->m_name);
 		this->m_description = nullptr;
 		this->m_name = nullptr;
-		throw setNameException;
+		throw setListDescriptorException;
 	}
 }
 
