@@ -115,9 +115,7 @@ char* ListDescriptor::getName(void)
 
 char* ListDescriptor::setName(char* name)
 {
-	char* temp{ this->m_name };
-	this->m_name = name;
-	return temp;
+	return setString(&this->m_name, static_cast<const char*>(name));
 }
 
 char* ListDescriptor::setName(const char* name)
@@ -134,9 +132,7 @@ char* ListDescriptor::getDescription(void)
 
 char* ListDescriptor::setDescription(char* description)
 {
-	char* temp{ this->m_description };
-	this->m_description = description;
-	return temp;
+	return setString(&this->m_description, static_cast<const char*>(description));
 }
 
 char* ListDescriptor::setDescription(const char* description)
