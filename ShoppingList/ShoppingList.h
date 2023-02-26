@@ -68,17 +68,17 @@ private:
 public:
 	enum class Category
 	{
-		PRODUCE,
-		BAKERY,
-		DELI,
-		DAIRY,
-		MEAT,
 		AUTOMOTIVE,
-		TOILETRIES,
+		BAKERY,
 		CLEANING,
+		DAIRY,
+		DELI,
 		ELECTRONIC,
+		MEAT,
+		NONE,
 		OTHER,
-		NONE
+		PRODUCE,
+		TOILETRIES,
 	};
 
 	enum Filter : unsigned int
