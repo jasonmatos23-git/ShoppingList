@@ -10,12 +10,14 @@
 // -------
 char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 {
+	// If the input string is nullptr, that means the member string should be cleared
 	if (i_str == nullptr)
 	{
 		free(*m_str);
 		*m_str = nullptr;
 		return nullptr;
 	}
+	// ...otherwise the input string needs to be copied to the member string
 	else
 	{
 		if (length < 1)
@@ -31,7 +33,7 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 			}
 			else
 			{
-				memcpy(*m_str, i_str, length);
+				std::memcpy(*m_str, i_str, length);
 				return *m_str;
 			}
 		}
