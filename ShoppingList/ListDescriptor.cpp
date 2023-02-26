@@ -91,8 +91,8 @@ ListDescriptor::~ListDescriptor(void)
 // ----------------
 ListDescriptor::ListDescriptor(const ListDescriptor& listDescriptor)
 {
-	this->setName(static_cast<const char*>(listDescriptor.m_name));
-	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+	this->setName(listDescriptor.m_name);
+	this->setDescription(listDescriptor.m_description);
 }
 
 // ------------------------
@@ -100,8 +100,8 @@ ListDescriptor::ListDescriptor(const ListDescriptor& listDescriptor)
 // ------------------------
 ListDescriptor& ListDescriptor::operator=(const ListDescriptor& listDescriptor)
 {
-	this->setName(static_cast<const char*>(listDescriptor.m_name));
-	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+	this->setName(listDescriptor.m_name);
+	this->setDescription(listDescriptor.m_description);
 	return *this;
 }
 
