@@ -10,12 +10,14 @@
 // -------
 char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 {
+	// If the input string is nullptr, that means the member string should be cleared
 	if (i_str == nullptr)
 	{
 		free(*m_str);
 		*m_str = nullptr;
 		return nullptr;
 	}
+	// ...otherwise the input string needs to be copied to the member string
 	else
 	{
 		if (length < 1)
@@ -31,7 +33,7 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 			}
 			else
 			{
-				memcpy(*m_str, i_str, length);
+				std::memcpy(*m_str, i_str, length);
 				return *m_str;
 			}
 		}
@@ -41,12 +43,13 @@ char* ListDescriptor::setString(char** m_str, const char* i_str, int length)
 char* ListDescriptor::setString(char** m_str, const char* i_str)
 {
 	int length{ 0 };
+	if (m_str == nullptr)
+	{
+		throw new std::invalid_argument("setString char** m_str cannot be nullptr.");
+	}
 	if (i_str != nullptr)
 	{
-		while (i_str[length] != '\0')
-		{
-			length++;
-		}
+		while (i_str[length++] != '\0');
 		length++;
 	}
 	return setString(m_str, i_str, length);
@@ -64,13 +67,13 @@ ListDescriptor::ListDescriptor(const char* name, const char* description)
 		this->setName(name);
 		this->setDescription(description);
 	}
-	catch (std::exception setNameException)
+	catch (std::exception setListDescriptorException)
 	{
 		free(this->m_description);
 		free(this->m_name);
 		this->m_description = nullptr;
 		this->m_name = nullptr;
-		throw setNameException;
+		throw setListDescriptorException;
 	}
 }
 
@@ -88,8 +91,8 @@ ListDescriptor::~ListDescriptor(void)
 // ----------------
 ListDescriptor::ListDescriptor(const ListDescriptor& listDescriptor)
 {
-	this->setName(static_cast<const char*>(listDescriptor.m_name));
-	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+	this->setName(listDescriptor.m_name);
+	this->setDescription(listDescriptor.m_description);
 }
 
 // ------------------------
@@ -97,8 +100,8 @@ ListDescriptor::ListDescriptor(const ListDescriptor& listDescriptor)
 // ------------------------
 ListDescriptor& ListDescriptor::operator=(const ListDescriptor& listDescriptor)
 {
-	this->setName(static_cast<const char*>(listDescriptor.m_name));
-	this->setDescription(static_cast<const char*>(listDescriptor.m_description));
+	this->setName(listDescriptor.m_name);
+	this->setDescription(listDescriptor.m_description);
 	return *this;
 }
 
@@ -112,9 +115,7 @@ char* ListDescriptor::getName(void)
 
 char* ListDescriptor::setName(char* name)
 {
-	char* temp{ this->m_name };
-	this->m_name = name;
-	return temp;
+	return setString(&this->m_name, static_cast<const char*>(name));
 }
 
 char* ListDescriptor::setName(const char* name)
@@ -131,9 +132,7 @@ char* ListDescriptor::getDescription(void)
 
 char* ListDescriptor::setDescription(char* description)
 {
-	char* temp{ this->m_description };
-	this->m_description = description;
-	return temp;
+	return setString(&this->m_description, static_cast<const char*>(description));
 }
 
 char* ListDescriptor::setDescription(const char* description)

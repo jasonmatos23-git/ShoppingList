@@ -63,23 +63,42 @@ class ListItem: public ListDescriptor
 	// Constants (class vars)
 	// ----------------------
 private:
-	static unsigned int kDefaultItemQuantity;
+	const static unsigned int kDefaultItemQuantity = 1;
 
 public:
-	enum class Category
+	enum class Category : int
 	{
-		PRODUCE,
-		BAKERY,
-		DELI,
-		DAIRY,
-		MEAT,
 		AUTOMOTIVE,
-		TOILETRIES,
+		BAKERY,
 		CLEANING,
+		DAIRY,
+		DELI,
 		ELECTRONIC,
+		MEAT,
+		NONE,
 		OTHER,
-		NONE
+		PRODUCE,
+		TOILETRIES,
 	};
+
+	static const char* categoryStr(Category category)
+	{
+		static const char* categoryStr[] =
+		{
+			"AUTOMOTIVE",
+			"BAKERY",
+			"CLEANING",
+			"DAIRY",
+			"DELI",
+			"ELECTRONIC",
+			"MEAT",
+			"NONE",
+			"OTHER",
+			"PRODUCE",
+			"TOILETRIES",
+		};
+		return categoryStr[static_cast<int>(category)];
+	}
 
 	enum Filter : unsigned int
 	{
@@ -102,8 +121,12 @@ private:
 	// ------------
 public:
 	ListItem(const char* name, const char* description, unsigned int quantity, Category category);
+	ListItem(const char* name, const char* description, unsigned int quantity);
+	ListItem(const char* name, const char* description, Category category);
+	ListItem(const char* name, const char* description);
 	ListItem(const char* name, unsigned int quantity, Category category);
 	ListItem(const char* name, unsigned int quantity);
+	ListItem(const char* name, Category category);
 	ListItem(const char* name);
 	ListItem(void);
 
@@ -120,8 +143,6 @@ public:
 	// -------
 	// Utility
 	// -------
-	// Note: May define a map instead
-	static const char* categoryToString(Category category);
 	const char* getCategoryStr(void);
 };
 
