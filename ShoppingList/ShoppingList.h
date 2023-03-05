@@ -66,7 +66,7 @@ private:
 	const static unsigned int kDefaultItemQuantity = 1;
 
 public:
-	enum class Category
+	enum class Category : int
 	{
 		AUTOMOTIVE,
 		BAKERY,
@@ -80,6 +80,25 @@ public:
 		PRODUCE,
 		TOILETRIES,
 	};
+
+	static const char* categoryStr(Category category)
+	{
+		static const char* categoryStr[] =
+		{
+			"AUTOMOTIVE",
+			"BAKERY",
+			"CLEANING",
+			"DAIRY",
+			"DELI",
+			"ELECTRONIC",
+			"MEAT",
+			"NONE",
+			"OTHER",
+			"PRODUCE",
+			"TOILETRIES",
+		};
+		return categoryStr[static_cast<int>(category)];
+	}
 
 	enum Filter : unsigned int
 	{
@@ -124,8 +143,6 @@ public:
 	// -------
 	// Utility
 	// -------
-	// Note: May define a map instead
-	static const char* categoryToString(Category category);
 	const char* getCategoryStr(void);
 };
 

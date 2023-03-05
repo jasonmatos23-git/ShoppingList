@@ -69,49 +69,7 @@ ListItem::Category ListItem::setCategory(Category category)
 // -------
 // Utility
 // -------
-const char* ListItem::categoryToString(Category category)
-{
-	switch (category)
-	{
-		case Category::AUTOMOTIVE:
-			return "AUTOMOTIVE";
-			break;
-		case Category::BAKERY:
-			return "BAKERY";
-			break;
-		case Category::CLEANING:
-			return "CLEANING";
-			break;
-		case Category::DAIRY:
-			return "DAIRY";
-			break;
-		case Category::DELI:
-			return "DELI";
-			break;
-		case Category::ELECTRONIC:
-			return "ELECTRONIC";
-			break;
-		case Category::MEAT:
-			return "MEAT";
-			break;
-		case Category::NONE:
-			return "NONE";
-			break;
-		case Category::OTHER:
-			return "OTHER";
-			break;
-		case Category::PRODUCE:
-			return "PRODUCE";
-			break;
-		case Category::TOILETRIES:
-			return "TOILETRIES";
-			break;
-		default:
-			return "WARNING: Category string not found.";
-	}
-}
-
 const char* ListItem::getCategoryStr(void)
 {
-	return ListItem::categoryToString(this->m_category);
+	return ListItem::categoryStr(this->m_category);
 }
